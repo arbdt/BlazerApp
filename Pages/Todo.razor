@@ -3,15 +3,24 @@
 <h3>Todo</h3>
 
 <ul>
-    @foreach (var item in todos)
+    @foreach (var item in todoList)
     {
         <li>@item.Title</li>
     }
 </ul>
 
-<input placeholder="Something todo" />
-<button>Add todo</button>
+<input placeholder="Something todo" @bind="newTodo"/>
+<button @onclick="AddTodo">Add todo</button>
 
 @code {
-    private List<TodoItem> todos = new();
+    private List<TodoItem> todoList = new();
+        private string? newTodo;
+    
+    private void AddTodo() {
+        if(!string.IsNullOrWhiteSpace(newTodo)){
+            todoList.Add(new TodoItem {Title = newTodo});
+
+            newTodo = string.Empty;
+        }
+    }
 }
