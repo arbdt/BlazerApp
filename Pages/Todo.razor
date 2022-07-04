@@ -1,3 +1,5 @@
+@page "/todo"
+
 <h3>Todo</h3>
 
 <ul>
@@ -6,6 +8,9 @@
         <li>@item.Title</li>
     }
 </ul>
+
+<input placeholder="Something todo" />
+<button>Add todo</button>
 
 @code {
     private List<TodoItem> todos = new();
