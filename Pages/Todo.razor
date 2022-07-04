@@ -1,5 +1,12 @@
-﻿<h3>Todo</h3>
+<h3>Todo</h3>
+
+<ul>
+    @foreach (var item in todos)
+    {
+        <li>@item.Title</li>
+    }
+</ul>
 
 @code {
-
+    private List<TodoItem> todos = new();
 }
